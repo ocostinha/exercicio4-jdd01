@@ -18,7 +18,9 @@ public class CondominoController {
     private CondominoRepository repository;
 
     @PostMapping
-    public ResponseEntity<Object> cadastrar(@RequestBody @Valid Condomino novoCondomino) {
+    public ResponseEntity<Object> cadastrarV1(@RequestBody @Valid Condomino novoCondomino) {
+        System.out.println(novoCondomino.toString());
+
         novoCondomino.setId(null);
 
         if (repository.findByEmail(novoCondomino.getEmail()).isPresent()) {
